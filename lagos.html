@@ -1,0 +1,622 @@
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_51e507d81800360ac57f529ba428c92a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_51e507d81800360ac57f529ba428c92a&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_51e507d81800360ac57f529ba428c92a = L.map(
+                &quot;map_51e507d81800360ac57f529ba428c92a&quot;,
+                {
+                    center: [6.4550575, 3.3941795],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 13,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_51e507d81800360ac57f529ba428c92a);
+
+            
+
+        
+    
+            var tile_layer_98ac1bdbd42e19fac3e9973a5d0fab53 = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_98ac1bdbd42e19fac3e9973a5d0fab53.addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var marker_ce976c8d56cad498a37f83ec4b6dc3d3 = L.marker(
+                [6.4550575, 3.3941795],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var icon_fe87a7aa99862527b8d0722ed2017a44 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;home&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_b2459adc8d9c50d4aa3da47552c0a65d = L.popup({
+  &quot;maxWidth&quot;: 250,
+});
+
+        
+            
+                var html_1ab2e2050a73833c37432bdbd4de8a26 = $(`&lt;div id=&quot;html_1ab2e2050a73833c37432bdbd4de8a26&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Your Location&lt;/b&gt;&lt;br&gt;Predicted disease: Pneumonia&lt;br&gt;Seeking: Pulmonologist&lt;/div&gt;`)[0];
+                popup_b2459adc8d9c50d4aa3da47552c0a65d.setContent(html_1ab2e2050a73833c37432bdbd4de8a26);
+            
+        
+
+        marker_ce976c8d56cad498a37f83ec4b6dc3d3.bindPopup(popup_b2459adc8d9c50d4aa3da47552c0a65d)
+        ;
+
+        
+    
+    
+            marker_ce976c8d56cad498a37f83ec4b6dc3d3.bindTooltip(
+                `&lt;div&gt;
+                     &lt;b&gt;Your Location&lt;/b&gt;
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_ce976c8d56cad498a37f83ec4b6dc3d3.setIcon(icon_fe87a7aa99862527b8d0722ed2017a44);
+            
+    
+            var circle_952a38fceda111f62489443f9a207109 = L.circle(
+                [6.4550575, 3.3941795],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3b7dd8&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#3b7dd8&quot;, &quot;fillOpacity&quot;: 0.07, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10000, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            circle_952a38fceda111f62489443f9a207109.bindTooltip(
+                `&lt;div&gt;
+                     Search radius: 10.0 km
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_cba54a8238a05ec8d5ac0c6bc7d4fcc4 = L.marker(
+                [6.4550636, 3.3922468],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_b04e0f6225eb3118d69d9f666387dd77 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#1a73e8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e1\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_c489c4ed636aa07a5364dec8bd8de881 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_e12081c6e064b964423eebdadcc5ce15 = $(`&lt;div id=&quot;html_e12081c6e064b964423eebdadcc5ce15&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Massey Street Children Hospital&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.21 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_c489c4ed636aa07a5364dec8bd8de881.setContent(html_e12081c6e064b964423eebdadcc5ce15);
+            
+        
+
+        marker_cba54a8238a05ec8d5ac0c6bc7d4fcc4.bindPopup(popup_c489c4ed636aa07a5364dec8bd8de881)
+        ;
+
+        
+    
+    
+            marker_cba54a8238a05ec8d5ac0c6bc7d4fcc4.bindTooltip(
+                `&lt;div&gt;
+                     1. Massey Street Children Hospital (0.21 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_cba54a8238a05ec8d5ac0c6bc7d4fcc4.setIcon(div_icon_b04e0f6225eb3118d69d9f666387dd77);
+            
+    
+            var marker_1f0793871ad48e4676b225af658c0aea = L.marker(
+                [6.457865, 3.3944013],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_8e222f297084f07a9fa200e6454024d8 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#0f9d58;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e2\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_ec9867f62c2135a0a1768a1dd679566a = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_b34245b1b38206f9f7b016dbf143ebcb = $(`&lt;div id=&quot;html_b34245b1b38206f9f7b016dbf143ebcb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Anikantamo Health Post&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.31 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_ec9867f62c2135a0a1768a1dd679566a.setContent(html_b34245b1b38206f9f7b016dbf143ebcb);
+            
+        
+
+        marker_1f0793871ad48e4676b225af658c0aea.bindPopup(popup_ec9867f62c2135a0a1768a1dd679566a)
+        ;
+
+        
+    
+    
+            marker_1f0793871ad48e4676b225af658c0aea.bindTooltip(
+                `&lt;div&gt;
+                     2. Anikantamo Health Post (0.31 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_1f0793871ad48e4676b225af658c0aea.setIcon(div_icon_8e222f297084f07a9fa200e6454024d8);
+            
+    
+            var marker_ed52b45eb3f8ab3a3bbce462a57d8743 = L.marker(
+                [6.4568754, 3.4005123],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_c80d25fc1bd6d62b8bb0cfdaf848d5d4 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#f4b400;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e3\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_7a7f33131537f6c2155469c8961f0124 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_e8fcd907da4a082e4a00b065e2fdd433 = $(`&lt;div id=&quot;html_e8fcd907da4a082e4a00b065e2fdd433&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Staff clinic&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.73 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_7a7f33131537f6c2155469c8961f0124.setContent(html_e8fcd907da4a082e4a00b065e2fdd433);
+            
+        
+
+        marker_ed52b45eb3f8ab3a3bbce462a57d8743.bindPopup(popup_7a7f33131537f6c2155469c8961f0124)
+        ;
+
+        
+    
+    
+            marker_ed52b45eb3f8ab3a3bbce462a57d8743.bindTooltip(
+                `&lt;div&gt;
+                     3. Staff clinic (0.73 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_ed52b45eb3f8ab3a3bbce462a57d8743.setIcon(div_icon_c80d25fc1bd6d62b8bb0cfdaf848d5d4);
+            
+    
+            var marker_8e580a3692153adf02a317eec7f079a1 = L.marker(
+                [6.4492553, 3.3976597],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_c332e1703634e81f9da4b5a61ae90523 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#db4437;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e4\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_87212ad7c49e7b15ddf83bdf900e20a2 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_58662a2df07d73280f6bdca05a2ddd92 = $(`&lt;div id=&quot;html_58662a2df07d73280f6bdca05a2ddd92&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;St Nicholas Hospital&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.75 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_87212ad7c49e7b15ddf83bdf900e20a2.setContent(html_58662a2df07d73280f6bdca05a2ddd92);
+            
+        
+
+        marker_8e580a3692153adf02a317eec7f079a1.bindPopup(popup_87212ad7c49e7b15ddf83bdf900e20a2)
+        ;
+
+        
+    
+    
+            marker_8e580a3692153adf02a317eec7f079a1.bindTooltip(
+                `&lt;div&gt;
+                     4. St Nicholas Hospital (0.75 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_8e580a3692153adf02a317eec7f079a1.setIcon(div_icon_c332e1703634e81f9da4b5a61ae90523);
+            
+    
+            var marker_204e1d36e180b7bf0717d246ad37871a = L.marker(
+                [6.4507465, 3.3996987],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_73dfad6f5f41f21dee994c4a722a1bf4 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#673ab7;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e5\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_82cf4d7bfb9f1560b847f75d28ac55f3 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_1575e5998977bc7f24ba94beb07d39ce = $(`&lt;div id=&quot;html_1575e5998977bc7f24ba94beb07d39ce&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Runsewe Hospital&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.77 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_82cf4d7bfb9f1560b847f75d28ac55f3.setContent(html_1575e5998977bc7f24ba94beb07d39ce);
+            
+        
+
+        marker_204e1d36e180b7bf0717d246ad37871a.bindPopup(popup_82cf4d7bfb9f1560b847f75d28ac55f3)
+        ;
+
+        
+    
+    
+            marker_204e1d36e180b7bf0717d246ad37871a.bindTooltip(
+                `&lt;div&gt;
+                     5. Runsewe Hospital (0.77 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_204e1d36e180b7bf0717d246ad37871a.setIcon(div_icon_73dfad6f5f41f21dee994c4a722a1bf4);
+            
+    
+            var marker_8b401ae06ca7e6a47424a6be2201713f = L.marker(
+                [6.4486491, 3.3973883],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_9354dac7815597da73f11f4d409b2aa4 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#00897b;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e6\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_41897844072f53bb73ad1f83172b5837 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_fcd81bcb568930377070b487fa583ec6 = $(`&lt;div id=&quot;html_fcd81bcb568930377070b487fa583ec6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Lagos Island Maternity Hospital&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.79 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_41897844072f53bb73ad1f83172b5837.setContent(html_fcd81bcb568930377070b487fa583ec6);
+            
+        
+
+        marker_8b401ae06ca7e6a47424a6be2201713f.bindPopup(popup_41897844072f53bb73ad1f83172b5837)
+        ;
+
+        
+    
+    
+            marker_8b401ae06ca7e6a47424a6be2201713f.bindTooltip(
+                `&lt;div&gt;
+                     6. Lagos Island Maternity Hospital (0.79 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_8b401ae06ca7e6a47424a6be2201713f.setIcon(div_icon_9354dac7815597da73f11f4d409b2aa4);
+            
+    
+            var marker_12c2e8e8697c5b1785668ab3f41818ff = L.marker(
+                [6.4474086, 3.3966328],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_b9b6795aacea13da0a417913f7e02ec4 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#e91e63;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e7\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_42fe3ce8daad1306b613ca82a6c5011b = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_91affd3dbd7dacfb34b2ae49f1af1abb = $(`&lt;div id=&quot;html_91affd3dbd7dacfb34b2ae49f1af1abb&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;General Hospital Lagos&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.89 km away&lt;br&gt;🌐 &lt;a href=http://www.ghlagos.org.ng target=_blank&gt;Website&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_42fe3ce8daad1306b613ca82a6c5011b.setContent(html_91affd3dbd7dacfb34b2ae49f1af1abb);
+            
+        
+
+        marker_12c2e8e8697c5b1785668ab3f41818ff.bindPopup(popup_42fe3ce8daad1306b613ca82a6c5011b)
+        ;
+
+        
+    
+    
+            marker_12c2e8e8697c5b1785668ab3f41818ff.bindTooltip(
+                `&lt;div&gt;
+                     7. General Hospital Lagos (0.89 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_12c2e8e8697c5b1785668ab3f41818ff.setIcon(div_icon_b9b6795aacea13da0a417913f7e02ec4);
+            
+    
+            var marker_f1748262d5fbb838b2672919eb5b8e46 = L.marker(
+                [6.4634177, 3.3927007],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_be7196bed4557570f299e692dfe120bc = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#ff6d00;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e8\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_752cd2b100994add5a7d2fc02fdccb84 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_3c311e950eb2b0bde02ba63f949e5664 = $(`&lt;div id=&quot;html_3c311e950eb2b0bde02ba63f949e5664&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Adeniji Adele PHC&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 0.94 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_752cd2b100994add5a7d2fc02fdccb84.setContent(html_3c311e950eb2b0bde02ba63f949e5664);
+            
+        
+
+        marker_f1748262d5fbb838b2672919eb5b8e46.bindPopup(popup_752cd2b100994add5a7d2fc02fdccb84)
+        ;
+
+        
+    
+    
+            marker_f1748262d5fbb838b2672919eb5b8e46.bindTooltip(
+                `&lt;div&gt;
+                     8. Adeniji Adele PHC (0.94 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_f1748262d5fbb838b2672919eb5b8e46.setIcon(div_icon_be7196bed4557570f299e692dfe120bc);
+            
+    
+            var marker_0e85ded3462362adae69048062884225 = L.marker(
+                [6.4601397, 3.3850774],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_640a18df69edeb3558c79b5f785ef602 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#1a73e8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e9\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_d181bdc36ba59d6192931f1ae34e329a = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_57ff7f824e1bea2abe86c5fb2c1ec64c = $(`&lt;div id=&quot;html_57ff7f824e1bea2abe86c5fb2c1ec64c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Oke Ari Health Post&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 1.15 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_d181bdc36ba59d6192931f1ae34e329a.setContent(html_57ff7f824e1bea2abe86c5fb2c1ec64c);
+            
+        
+
+        marker_0e85ded3462362adae69048062884225.bindPopup(popup_d181bdc36ba59d6192931f1ae34e329a)
+        ;
+
+        
+    
+    
+            marker_0e85ded3462362adae69048062884225.bindTooltip(
+                `&lt;div&gt;
+                     9. Oke Ari Health Post (1.15 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_0e85ded3462362adae69048062884225.setIcon(div_icon_640a18df69edeb3558c79b5f785ef602);
+            
+    
+            var marker_bbb9bac64e6e278e3d02483b1db9b062 = L.marker(
+                [6.4653226, 3.3901511],
+                {
+}
+            ).addTo(map_51e507d81800360ac57f529ba428c92a);
+        
+    
+            var div_icon_52b4161e8d33d7ff5bf6b2245d2449dd = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#0f9d58;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e10\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_43ce67c3bbfee28cc587491b564c8a36 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_921382e861b88206bc78b658bf1e6e5f = $(`&lt;div id=&quot;html_921382e861b88206bc78b658bf1e6e5f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Zenith PHC&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 1.22 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_43ce67c3bbfee28cc587491b564c8a36.setContent(html_921382e861b88206bc78b658bf1e6e5f);
+            
+        
+
+        marker_bbb9bac64e6e278e3d02483b1db9b062.bindPopup(popup_43ce67c3bbfee28cc587491b564c8a36)
+        ;
+
+        
+    
+    
+            marker_bbb9bac64e6e278e3d02483b1db9b062.bindTooltip(
+                `&lt;div&gt;
+                     10. Zenith PHC (1.22 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_bbb9bac64e6e278e3d02483b1db9b062.setIcon(div_icon_52b4161e8d33d7ff5bf6b2245d2449dd);
+            
+    
+            map_51e507d81800360ac57f529ba428c92a.fitBounds(
+                [[6.4474086, 3.3850774], [6.4653226, 3.4005123]],
+                {&quot;padding&quot;: [30, 30]}
+            );
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>

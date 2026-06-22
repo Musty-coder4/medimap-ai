@@ -1,0 +1,622 @@
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_bc706fb390d280044a62740419d9dc3a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_bc706fb390d280044a62740419d9dc3a&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_bc706fb390d280044a62740419d9dc3a = L.map(
+                &quot;map_bc706fb390d280044a62740419d9dc3a&quot;,
+                {
+                    center: [9.0643305, 7.4892974],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 13,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_bc706fb390d280044a62740419d9dc3a);
+
+            
+
+        
+    
+            var tile_layer_f01ceb0c885603ddcc1a308e0363e65b = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_f01ceb0c885603ddcc1a308e0363e65b.addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var marker_82549a7850b5c158b9c9cce69b760637 = L.marker(
+                [9.0643305, 7.4892974],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var icon_a5c4b88de722d337ae18b8773a964c05 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;home&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_7002821098d7b6f1c4260d1950ac6800 = L.popup({
+  &quot;maxWidth&quot;: 250,
+});
+
+        
+            
+                var html_08afd5e32472ff3de15299f05011eeb8 = $(`&lt;div id=&quot;html_08afd5e32472ff3de15299f05011eeb8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Your Location&lt;/b&gt;&lt;br&gt;Predicted disease: Pneumonia&lt;br&gt;Seeking: Pulmonologist&lt;/div&gt;`)[0];
+                popup_7002821098d7b6f1c4260d1950ac6800.setContent(html_08afd5e32472ff3de15299f05011eeb8);
+            
+        
+
+        marker_82549a7850b5c158b9c9cce69b760637.bindPopup(popup_7002821098d7b6f1c4260d1950ac6800)
+        ;
+
+        
+    
+    
+            marker_82549a7850b5c158b9c9cce69b760637.bindTooltip(
+                `&lt;div&gt;
+                     &lt;b&gt;Your Location&lt;/b&gt;
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_82549a7850b5c158b9c9cce69b760637.setIcon(icon_a5c4b88de722d337ae18b8773a964c05);
+            
+    
+            var circle_e9cf7d45ef38d7624acc1095ebd9073d = L.circle(
+                [9.0643305, 7.4892974],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#3b7dd8&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#3b7dd8&quot;, &quot;fillOpacity&quot;: 0.07, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 10000, &quot;stroke&quot;: true, &quot;weight&quot;: 3}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            circle_e9cf7d45ef38d7624acc1095ebd9073d.bindTooltip(
+                `&lt;div&gt;
+                     Search radius: 10.0 km
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_d44a072e6df26956c6bb272d8dedebbc = L.marker(
+                [9.0704384, 7.4865921],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_a7a98512be9485bb0bdefcef2ec8a76d = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#1a73e8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e1\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_bf74d207538ab0314e6deccecd49f65b = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_b52a6160b3d4ec465c46311850f43630 = $(`&lt;div id=&quot;html_b52a6160b3d4ec465c46311850f43630&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Limi Children&amp;#x27;s Hospital&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 39, Adetokunbo Ademola Crescent, Wuse 2, Abuja&lt;br&gt;📏 0.74 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_bf74d207538ab0314e6deccecd49f65b.setContent(html_b52a6160b3d4ec465c46311850f43630);
+            
+        
+
+        marker_d44a072e6df26956c6bb272d8dedebbc.bindPopup(popup_bf74d207538ab0314e6deccecd49f65b)
+        ;
+
+        
+    
+    
+            marker_d44a072e6df26956c6bb272d8dedebbc.bindTooltip(
+                `&lt;div&gt;
+                     1. Limi Children&amp;#x27;s Hospital (0.74 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_d44a072e6df26956c6bb272d8dedebbc.setIcon(div_icon_a7a98512be9485bb0bdefcef2ec8a76d);
+            
+    
+            var marker_04c35d83d7acfa33f0f68612fbbc6f47 = L.marker(
+                [9.0530742, 7.4792411],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_1e9246a5457afc62a005a0fe7b866926 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#0f9d58;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e2\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_e933abe5b05cba660d7c8b70f88b1904 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_c3572745a74761140b975c5fd4891a33 = $(`&lt;div id=&quot;html_c3572745a74761140b975c5fd4891a33&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Tonia Pharmacy Ltd.&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Mohammadu Buhari Way, Abuja&lt;br&gt;📏 1.67 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_e933abe5b05cba660d7c8b70f88b1904.setContent(html_c3572745a74761140b975c5fd4891a33);
+            
+        
+
+        marker_04c35d83d7acfa33f0f68612fbbc6f47.bindPopup(popup_e933abe5b05cba660d7c8b70f88b1904)
+        ;
+
+        
+    
+    
+            marker_04c35d83d7acfa33f0f68612fbbc6f47.bindTooltip(
+                `&lt;div&gt;
+                     2. Tonia Pharmacy Ltd. (1.67 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_04c35d83d7acfa33f0f68612fbbc6f47.setIcon(div_icon_1e9246a5457afc62a005a0fe7b866926);
+            
+    
+            var marker_a7563bcf445dff62ac81cd92054a845a = L.marker(
+                [9.0613402, 7.4727222],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_db8d6b82dcabfb90644870000cf8f868 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#f4b400;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e3\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_670cf11a8b7158fdc817da27a560715f = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_96ccd1fc7892754094d4afe314b7e128 = $(`&lt;div id=&quot;html_96ccd1fc7892754094d4afe314b7e128&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Peniel Eye Clinic And Surgery&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Zone 3, 4B Mwanza Cl, opposite Tamara Guest Inn, off Idimba Street, Wuse, Abuja, 900283&lt;br&gt;📏 1.85 km away&lt;br&gt;📞 0703 747 6368&lt;br&gt;🌐 &lt;a href=https://penieleyeclinic.com target=_blank&gt;Website&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_670cf11a8b7158fdc817da27a560715f.setContent(html_96ccd1fc7892754094d4afe314b7e128);
+            
+        
+
+        marker_a7563bcf445dff62ac81cd92054a845a.bindPopup(popup_670cf11a8b7158fdc817da27a560715f)
+        ;
+
+        
+    
+    
+            marker_a7563bcf445dff62ac81cd92054a845a.bindTooltip(
+                `&lt;div&gt;
+                     3. Peniel Eye Clinic And Surgery (1.85 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_a7563bcf445dff62ac81cd92054a845a.setIcon(div_icon_db8d6b82dcabfb90644870000cf8f868);
+            
+    
+            var marker_755850ac4c03cba18718a2b0c64fb938 = L.marker(
+                [9.0628369, 7.4689536],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_dcab2ab5e0f32013bdd8503da5d30e28 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#db4437;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e4\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_b62be207b88f2d4d3d0c607bd4801a6d = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_1d572f184225d1dd112a0994fa4bb55a = $(`&lt;div id=&quot;html_1d572f184225d1dd112a0994fa4bb55a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Wuse General Hospital&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 15, Conakry Street, Abuja&lt;br&gt;📏 2.24 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_b62be207b88f2d4d3d0c607bd4801a6d.setContent(html_1d572f184225d1dd112a0994fa4bb55a);
+            
+        
+
+        marker_755850ac4c03cba18718a2b0c64fb938.bindPopup(popup_b62be207b88f2d4d3d0c607bd4801a6d)
+        ;
+
+        
+    
+    
+            marker_755850ac4c03cba18718a2b0c64fb938.bindTooltip(
+                `&lt;div&gt;
+                     4. Wuse General Hospital (2.24 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_755850ac4c03cba18718a2b0c64fb938.setIcon(div_icon_dcab2ab5e0f32013bdd8503da5d30e28);
+            
+    
+            var marker_fc371aab9c367b1997c6811fa7121b51 = L.marker(
+                [9.0612803, 7.4685387],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_b74fefe9fd2ba4ffb7b6516c988c1670 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#673ab7;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e5\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_a46c166a4f1b05f274585f6fce822083 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_20543cd4a04df85af8f0d95117a82c20 = $(`&lt;div id=&quot;html_20543cd4a04df85af8f0d95117a82c20&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Zagbavi Pharmacy&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Address not available&lt;br&gt;📏 2.31 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_a46c166a4f1b05f274585f6fce822083.setContent(html_20543cd4a04df85af8f0d95117a82c20);
+            
+        
+
+        marker_fc371aab9c367b1997c6811fa7121b51.bindPopup(popup_a46c166a4f1b05f274585f6fce822083)
+        ;
+
+        
+    
+    
+            marker_fc371aab9c367b1997c6811fa7121b51.bindTooltip(
+                `&lt;div&gt;
+                     5. Zagbavi Pharmacy (2.31 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_fc371aab9c367b1997c6811fa7121b51.setIcon(div_icon_b74fefe9fd2ba4ffb7b6516c988c1670);
+            
+    
+            var marker_cbf2013c7e4d278f9884fd747ec7248b = L.marker(
+                [9.0712946, 7.4689118],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_3469d61685a33e9efadc9033a26dd085 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#00897b;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e6\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_66e65e85f49ffe3d0b9039710a86709c = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_1f3edd8d3ceb8ff6e1404990cca9f84b = $(`&lt;div id=&quot;html_1f3edd8d3ceb8ff6e1404990cca9f84b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Skylark Pharmacy&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 29, Lingu Crescent&lt;br&gt;📏 2.37 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_66e65e85f49ffe3d0b9039710a86709c.setContent(html_1f3edd8d3ceb8ff6e1404990cca9f84b);
+            
+        
+
+        marker_cbf2013c7e4d278f9884fd747ec7248b.bindPopup(popup_66e65e85f49ffe3d0b9039710a86709c)
+        ;
+
+        
+    
+    
+            marker_cbf2013c7e4d278f9884fd747ec7248b.bindTooltip(
+                `&lt;div&gt;
+                     6. Skylark Pharmacy (2.37 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_cbf2013c7e4d278f9884fd747ec7248b.setIcon(div_icon_3469d61685a33e9efadc9033a26dd085);
+            
+    
+            var marker_d5ead0f9d9fb90b0ecfdc6aeadc0f543 = L.marker(
+                [9.0425912, 7.4958224],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_9beca8a12d4ab29b6344ce3c104c4d69 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#e91e63;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e7\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_c4f019654276762a102b6f9ad3ce9b33 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_4c0f614bf814447426f8f29bb48e7ecd = $(`&lt;div id=&quot;html_4c0f614bf814447426f8f29bb48e7ecd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Novacare Dental &amp;amp; Maxillofacial Surgery&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 Area 11, Alliance Hospital, 5 Malumfashi Cl, off Emeka Anyaoku Street, Garki, Abuja, 900247&lt;br&gt;📏 2.51 km away&lt;br&gt;📞 0813 355 7279&lt;br&gt;🌐 &lt;a href=https://novacaredentalandmaxillofacial.com target=_blank&gt;Website&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_c4f019654276762a102b6f9ad3ce9b33.setContent(html_4c0f614bf814447426f8f29bb48e7ecd);
+            
+        
+
+        marker_d5ead0f9d9fb90b0ecfdc6aeadc0f543.bindPopup(popup_c4f019654276762a102b6f9ad3ce9b33)
+        ;
+
+        
+    
+    
+            marker_d5ead0f9d9fb90b0ecfdc6aeadc0f543.bindTooltip(
+                `&lt;div&gt;
+                     7. Novacare Dental &amp;amp; Maxillofacial Surgery (2.51 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_d5ead0f9d9fb90b0ecfdc6aeadc0f543.setIcon(div_icon_9beca8a12d4ab29b6344ce3c104c4d69);
+            
+    
+            var marker_bb9bff116d8a257a015dc0eefc9aa85f = L.marker(
+                [9.0596188, 7.4667062],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_9bce70ddd3556a7f8d8dec70ab2abc47 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#ff6d00;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e8\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_2dbe12f8e8bbe9006a1de96b4145b4c9 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_ebb78c85d300a35eaed9d636119d2029 = $(`&lt;div id=&quot;html_ebb78c85d300a35eaed9d636119d2029&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Skylark Pharmacy&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 3, Conakry Street&lt;br&gt;📏 2.54 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_2dbe12f8e8bbe9006a1de96b4145b4c9.setContent(html_ebb78c85d300a35eaed9d636119d2029);
+            
+        
+
+        marker_bb9bff116d8a257a015dc0eefc9aa85f.bindPopup(popup_2dbe12f8e8bbe9006a1de96b4145b4c9)
+        ;
+
+        
+    
+    
+            marker_bb9bff116d8a257a015dc0eefc9aa85f.bindTooltip(
+                `&lt;div&gt;
+                     8. Skylark Pharmacy (2.54 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_bb9bff116d8a257a015dc0eefc9aa85f.setIcon(div_icon_9bce70ddd3556a7f8d8dec70ab2abc47);
+            
+    
+            var marker_f5894993761dd6063f46cfe279421f8c = L.marker(
+                [9.0837416, 7.4702917],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_601a6a29ac21c1c2ff5161424767e3f4 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#1a73e8;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e9\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_33302bb09f95fa4a6e0a6b9bf3edbbf8 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_a2b0a912a0134c95745d5abe04c4b81e = $(`&lt;div id=&quot;html_a2b0a912a0134c95745d5abe04c4b81e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Synlab&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 17, Aminu Kano Crescent&lt;br&gt;📏 3.00 km away&lt;br&gt;📞 +234 700 079 6522&lt;br&gt;🌐 &lt;a href=https://synlab.com.ng/ target=_blank&gt;Website&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_33302bb09f95fa4a6e0a6b9bf3edbbf8.setContent(html_a2b0a912a0134c95745d5abe04c4b81e);
+            
+        
+
+        marker_f5894993761dd6063f46cfe279421f8c.bindPopup(popup_33302bb09f95fa4a6e0a6b9bf3edbbf8)
+        ;
+
+        
+    
+    
+            marker_f5894993761dd6063f46cfe279421f8c.bindTooltip(
+                `&lt;div&gt;
+                     9. Synlab (3.00 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_f5894993761dd6063f46cfe279421f8c.setIcon(div_icon_601a6a29ac21c1c2ff5161424767e3f4);
+            
+    
+            var marker_a7390f9d6cb793048439e8211a23de01 = L.marker(
+                [9.0863189, 7.4718243],
+                {
+}
+            ).addTo(map_bc706fb390d280044a62740419d9dc3a);
+        
+    
+            var div_icon_398feaca9db9eed431bcaa39ed983b3f = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;background:#0f9d58;color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.35)\&quot;\u003e10\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [28, 28],
+  &quot;iconAnchor&quot;: [14, 14],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+        var popup_e6926cb2b72f4696af1ca5bc831601bb = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_afb876b60542cfc072614e8968f3509b = $(`&lt;div id=&quot;html_afb876b60542cfc072614e8968f3509b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:sans-serif;min-width:180px&#x27;&gt;&lt;b&gt;Migration Health Assessment Center - Abuja&lt;/b&gt;&lt;br&gt;&lt;span style=&#x27;color:#555&#x27;&gt;Pulmonologist&lt;/span&gt;&lt;br&gt;📍 4, Buchanan Close&lt;br&gt;📏 3.10 km away&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_e6926cb2b72f4696af1ca5bc831601bb.setContent(html_afb876b60542cfc072614e8968f3509b);
+            
+        
+
+        marker_a7390f9d6cb793048439e8211a23de01.bindPopup(popup_e6926cb2b72f4696af1ca5bc831601bb)
+        ;
+
+        
+    
+    
+            marker_a7390f9d6cb793048439e8211a23de01.bindTooltip(
+                `&lt;div&gt;
+                     10. Migration Health Assessment Center - Abuja (3.10 km)
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_a7390f9d6cb793048439e8211a23de01.setIcon(div_icon_398feaca9db9eed431bcaa39ed983b3f);
+            
+    
+            map_bc706fb390d280044a62740419d9dc3a.fitBounds(
+                [[9.0425912, 7.4667062], [9.0863189, 7.4958224]],
+                {&quot;padding&quot;: [30, 30]}
+            );
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>

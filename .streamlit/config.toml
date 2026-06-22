@@ -1,0 +1,26 @@
+# MediMap AI — Streamlit Configuration
+# NOTE: base theme is set to "light" intentionally.
+# Our inject_theme_class() function fully controls both dark and light
+# palettes via !important CSS overrides. If Streamlit's base is "dark"
+# it injects its own background colours that fight our custom CSS.
+
+[theme]
+base                     = "light"
+primaryColor             = "#3b82f6"
+textColor                = "#0f172a"
+backgroundColor          = "#f8fafc"
+secondaryBackgroundColor = "#f1f5f9"
+font                     = "sans serif"
+
+[server]
+headless             = true
+port                 = 8501
+enableCORS           = false
+enableXsrfProtection = true
+maxUploadSize        = 50
+
+[browser]
+gatherUsageStats = false
+
+[runner]
+fastReruns = true
