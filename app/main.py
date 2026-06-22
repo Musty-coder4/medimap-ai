@@ -436,6 +436,8 @@ def load_model(
         return model
     except Exception as exc:
         logger.error("Failed to load model: %s", exc)
+        import streamlit as st
+        st.sidebar.error(f"Debug - Model Load Error: {exc}")
         return None
 
 
