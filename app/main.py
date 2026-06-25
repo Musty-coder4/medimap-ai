@@ -791,20 +791,13 @@ def render_location() -> tuple[Optional[float], Optional[float], str]:
             from streamlit_geolocation import streamlit_geolocation
 
             st.markdown(
-                """
-                <div style="background:#f8fafc; border:2px dashed #cbd5e1; border-radius:12px; padding:1.5rem; text-align:center; margin-top:.5rem;">
-                    <h4 style="margin-top:0; color:#334155; font-size:1.05rem;">📍 Auto-Detect Location</h4>
-                    <p style="color:#64748b; font-size:.85rem; margin-bottom:1.2rem;">
-                        Click the button below to use your device's GPS. <br>
-                        <strong>Note:</strong> You must allow location permissions when your browser asks.
-                    </p>
-                """,
+                "<p style='color:#64748b;font-size:.85rem;margin-bottom:.6rem'>"
+                "Click the button below — your browser will ask permission to "
+                "share your location. <strong>Allow</strong> it for GPS pinpointing.</p>",
                 unsafe_allow_html=True,
             )
 
             gps = streamlit_geolocation()
-
-            st.markdown("</div>", unsafe_allow_html=True)
 
             if gps and gps.get("latitude") is not None:
                 gps_lat = float(gps["latitude"])
