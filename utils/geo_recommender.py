@@ -563,6 +563,21 @@ def search_specialists(
 
     clinics.sort()  # Sort by distance_km (dataclass field ordering)
     result = clinics[:max_results]
+    
+    # ── Fallback Logic: If no specialists found, try General Hospitals ──
+    if not result and specialty != "General Practitioner":
+        logger.info(
+            "No '%s' clinics found within %dm. Falling back to General Practitioner...",
+            specialty, radius_m
+        )
+        return search_specialists(
+            lat=lat,
+            lon=lon,
+            specialty="General Practitioner",
+            radius_m=radius_m,
+            max_results=max_results,
+        )
+
     logger.info("Returning %d clinics after filtering.", len(result))
     return result
 
