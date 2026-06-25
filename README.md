@@ -1,159 +1,91 @@
-# MediMap AI
+# 🩺 MediMap AI: Late-Fusion Multi-Modal Healthcare System & GIS Recommender
 
-> **Hybrid Multi-Modal Healthcare Expert System & GIS Specialist Recommender**
+![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.1.0-red.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.30.0-FF4B4B.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-A production-grade AI system that fuses symptom checklists (tabular) with medical imagery (X-rays / skin scans) using a **Dual-Stream Late-Fusion Deep Learning model**, then maps predictions to localised specialist clinics via real-time **Geospatial APIs**.
-
----
-
-## 🏗️ Project Architecture
-
-```
-medimap-ai/
-├── app/
-│   └── main.py                  # Streamlit dashboard UI
-├── models/
-│   ├── hybrid_fusion.py         # ★ Dual-Stream Late-Fusion model (PyTorch)
-│   ├── train.py                 # Training pipeline + AMP + checkpointing
-│   ├── evaluate.py              # Metrics: accuracy, F1, AUROC
-│   ├── inference_engine.py      # Production inference wrapper
-│   └── saved/                   # Serialised .pth checkpoints
-├── utils/
-│   ├── geo_recommender.py       # ★ GIS pipeline (Overpass/OSM + Folium)
-│   └── data_preprocessor.py    # Tabular + image preprocessing helpers
-├── data/
-│   ├── raw/tabular/             # Kaggle Disease Symptom CSV
-│   ├── raw/images/xray/         # Chest X-ray images
-│   └── raw/images/skin/         # Skin lesion images
-├── tests/
-│   └── test_medimap.py          # Pytest unit test suite
-├── requirements.txt
-├── setup_project.py
-└── .env.example
-```
+MediMap AI is an advanced, multi-modal healthcare expert system built as a university Final Year Project. It merges **Deep Learning**, **Generative AI**, and **Geographic Information Systems (GIS)** to provide highly accurate disease predictions, personalized medical insights, and live physical hospital recommendations based on the user's location.
 
 ---
 
-## 🚀 Quick Start
+## ✨ Key Features
 
-### 1 · Install dependencies
-```powershell
-# Create and activate virtual environment
-python -m venv .venv
-.venv\Scripts\activate
+1. **Late-Fusion Multi-Modal Architecture:** 
+   - Uses a **Multi-Layer Perceptron (MLP)** for processing 131 clinical symptoms.
+   - Uses a **ResNet-50 Convolutional Neural Network (CNN)** for processing medical imaging (Chest X-Rays and Dermatoscopic Skin Lesions).
+   - Fuses both modalities at the final layers to predict up to 41 distinct diseases with exceptional accuracy.
+   
+2. **Generative AI Health Insights:** 
+   - Integrated with the **Google Gemini API** (`gemini-2.5-flash-lite`).
+   - Extracts medical keywords natively from free-text user descriptions.
+   - Generates personalized, dynamically typed health insights, precautions, and actionable advice post-prediction.
 
-# Install PyTorch with CUDA 12.1
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+3. **GIS Specialist Recommender:** 
+   - Utilizes the **Overpass API** (OpenStreetMap) to dynamically locate nearby healthcare facilities.
+   - Automatically maps predictions to specific medical specialists (e.g., *Dermatologist* for Acne, *Pulmonologist* for Pneumonia).
+   - Features an **Intelligent Fallback System** that defaults to General Practitioners and General Hospitals if specialized clinics are unavailable in the user's immediate radius.
 
-# Install all other dependencies
+4. **Web Deployment:** 
+   - Fully deployed via **Streamlit Community Cloud**.
+   - Handles massive 280MB+ PyTorch model checkpoints efficiently using **Git Large File Storage (LFS)**.
+   - Automatically detects CPU vs CUDA availability to optimize inference speed.
+
+---
+
+## 🛠️ Technology Stack
+
+| Domain | Technologies |
+|---|---|
+| **Deep Learning** | PyTorch, Torchvision, Scikit-learn |
+| **Model Architectures** | ResNet-50, Multi-Layer Perceptron (MLP) |
+| **Generative AI** | Google Gemini API |
+| **GIS & Mapping** | Folium, Geopy, Overpass API, Nominatim |
+| **Web Frontend** | Streamlit, Streamlit-Folium |
+
+---
+
+## 🚀 Running the Project Locally
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Musty-coder4/medimap-ai.git
+cd medimap-ai
+```
+
+### 2. Install Dependencies
+Ensure you are using Python 3.12.
+```bash
 pip install -r requirements.txt
 ```
 
-### 2 · Scaffold project directories
-```powershell
-python setup_project.py
+### 3. Add Environment Variables
+Create a `.env` file in the root directory and add your free Gemini API key:
+```env
+GEMINI_API_KEY="your-api-key-here"
 ```
 
-### 3 · Add your dataset
-Download the **Kaggle Disease Symptom & Patient Profile** dataset and place the CSV at:
-```
-data/raw/tabular/dataset.csv
-```
-Dataset URL: https://www.kaggle.com/datasets/itachi9604/disease-symptom-description-dataset
-
-### 4 · Train the model
-```powershell
-python models/train.py `
-  --tabular_csv data/raw/tabular/dataset.csv `
-  --epochs 30 `
-  --batch_size 32 `
-  --backbone mobilenet_v2 `
-  --unfreeze_epoch 5
-```
-
-### 5 · Launch the Streamlit app
-```powershell
+### 4. Run the Streamlit Application
+```bash
 streamlit run app/main.py
 ```
 
 ---
 
-## 🧠 Model Architecture
+## 📊 Dataset & Training
 
-```
-                     ┌─────────────────────────────────┐
- Symptom Vector ───► │  Stream A: TabularMLP            │ ──► 128-d embedding
- (one-hot, 131d)     │  (Linear → BN → ReLU × 3)       │
-                     └─────────────────────────────────┘
-                                                          ╲
-                                                           ╲
-                                                            ► Concat (256-d) ──► FusionHead ──► Softmax
-                                                           ╱                      (Linear × 3)    (41 classes)
-                     ┌─────────────────────────────────┐ ╱
- Medical Image ────► │  Stream B: VisionCNN             │ ──► 128-d embedding
- (224×224, RGB)      │  (MobileNetV2 + Projection Head) │
-                     └─────────────────────────────────┘
-```
-
-| Component | Details |
-|-----------|---------|
-| Tabular stream | MLP (512→256→128) with BatchNorm + Dropout |
-| Vision stream | MobileNetV2 / ResNet50 (pretrained ImageNet) |
-| Fusion | Late-fusion concat → 256-d → 128-d → `num_classes` |
-| Training | AdamW + CosineAnnealingLR + AMP mixed precision |
-| Regularisation | Label smoothing (0.1), Dropout (0.3), Grad clipping |
+The system was trained on a robust, multi-modal dataset consisting of:
+- **Tabular Data:** 41 distinct diseases mapped against 131 unique symptoms (achieved 100% validation accuracy).
+- **Vision Data:** Over 9,000 real medical images sourced from Kaggle.
+  - *Chest X-Rays:* Pneumonia and Normal (Common Cold proxy).
+  - *Skin Lesions (HAM10000 / ISIC):* Acne, Impetigo, Psoriasis, Fungal Infections.
 
 ---
 
-## 🗺️ GIS Pipeline
+## ⚠️ Medical Disclaimer
 
-```
-Disease Prediction
-      │
-      ▼
-disease_to_specialty()        # e.g. "Pneumonia" → "Pulmonologist"
-      │
-      ▼
-geocode_address()             # Nominatim → (lat, lon)
-      │
-      ▼
-search_specialists()          # Overpass API / OSM → clinic list
-      │
-      ▼
-build_folium_map()            # Interactive map with numbered markers
-```
+**MediMap AI is an academic research project.** The predictions, AI-generated insights, and clinic recommendations provided by this application are for informational and educational purposes only. They do not constitute professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified healthcare provider with any questions you may have regarding a medical condition.
 
 ---
 
-## ⚙️ Configuration
-
-Copy `.env.example` → `.env` and configure:
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `GEO_SEARCH_RADIUS_M` | `10000` | Clinic search radius (metres) |
-| `GEO_MAX_RESULTS` | `10` | Max clinics returned |
-| `OVERPASS_API_URL` | OSM public | Overpass API endpoint |
-| `FORCE_CPU` | `0` | Set `1` to disable CUDA |
-
----
-
-## 🧪 Running Tests
-
-```powershell
-pytest tests/ -v --tb=short --cov=models --cov=utils
-```
-
----
-
-## ⚠️ Disclaimer
-
-MediMap AI is a **research and educational prototype**.
-It is **not a certified medical device** and must **not** be used for clinical diagnosis.
-Always consult a qualified medical professional.
-
----
-
-## 📋 License
-
-MIT License — see `LICENSE` for details.
+*Designed and engineered for Final Year Project Submission — 2026.*
