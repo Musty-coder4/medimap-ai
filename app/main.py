@@ -1071,7 +1071,8 @@ def main() -> None:
             "<h4 style='margin-top:0;color:#854d0e'>🩺 Diagnostic Follow-up Required</h4>"
             "<p style='color:#78350f;margin-bottom:0.5rem'>"
             f"The current symptoms lack specificity (Confidence: <b>{st.session_state['base_result']['confidence']:.1f}%</b>). "
-            "To narrow down the diagnosis, please check any of the following you are experiencing. "
+            f"The system currently suspects <b>{st.session_state['base_result']['predicted_class']}</b>. "
+            "To confirm or narrow down the diagnosis, please check any of the following you are experiencing. "
             "<i>The system will automatically re-evaluate upon every click!</i></p></div>",
             unsafe_allow_html=True
         )
