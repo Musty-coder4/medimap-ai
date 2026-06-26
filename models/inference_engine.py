@@ -205,15 +205,4 @@ class MediMapInferenceEngine:
                 
         # Sort by highest positive shift
         scores.sort(key=lambda x: x[1], reverse=True)
-        
-        # If no symptoms increase the top hypothesis, return the ones that cause 
-        # the largest absolute change across all classes to disambiguate.
-        if not scores:
-            for sym in unselected:
-                test_syms = current_symptoms + [sym]
-                res = self.predict_from_inputs(test_syms)
-                shift = sum(abs(res["probabilities"][c] - base_probs[c]) for c in base_probs)
-                scores.append((sym, shift))
-            scores.sort(key=lambda x: x[1], reverse=True)
-            
         return [sym for sym, _ in scores[:top_n]]
