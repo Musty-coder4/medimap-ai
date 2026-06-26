@@ -1055,11 +1055,19 @@ def main() -> None:
 
             # If confidence is low and we haven't exhausted the top 5 diseases
             if result["confidence"] < 60.0 and not result.get("demo", False) and target_rank < 5:
-                st.session_state["survey_mode"] = True
-                st.session_state["base_result"] = result
-                st.session_state["survey_questions"] = get_clarifying_questions(
+                questions = get_clarifying_questions(
                     model, final_symptoms, symptom_cols, label_names, result, img_ten, top_n=10, target_rank=target_rank
                 )
+                if questions:
+                    st.session_state["survey_mode"] = True
+                    st.session_state["base_result"] = result
+                    st.session_state["survey_questions"] = questions
+                else:
+                    # No more symptoms to ask about, just accept the low confidence and proceed
+                    st.session_state["survey_mode"] = False
+                    st.session_state["analyse_active"] = False
+                    _process_prediction(result, final_symptoms)
+                    st.rerun()
             else:
                 st.session_state["survey_mode"] = False
                 st.session_state["analyse_active"] = False
