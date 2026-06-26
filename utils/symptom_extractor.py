@@ -37,7 +37,18 @@ logger = logging.getLogger(__name__)
 # Paste your free Gemini key here, or set the GEMINI_API_KEY env variable.
 # Get a free key in 2 minutes at: https://aistudio.google.com/apikey
 # Leave blank ("") to skip AI extraction and use the offline engine only.
-GEMINI_API_KEY: str = os.environ.get("GEMINI_API_KEY", "")
+# On Streamlit Cloud, secrets live in st.secrets — try that first, then .env
+def _load_gemini_key() -> str:
+    try:
+        import streamlit as st
+        key = st.secrets.get("GEMINI_API_KEY", "")
+        if key:
+            return key
+    except Exception:
+        pass
+    return os.environ.get("GEMINI_API_KEY", "")
+
+GEMINI_API_KEY: str = _load_gemini_key()
 
 _GEMINI_MODEL = "gemini-2.5-flash-lite"  # working free-tier model on this key
 
@@ -602,17 +613,28 @@ RESPONSE FORMAT (return ONLY this JSON):
                     logger.warning("Gemini rate limited. Waiting %ds...", wait)
                     time.sleep(wait)
                     continue
-                logger.warning("Gemini extraction error: %s", e)
+                # Log full error visibly so it shows in Streamlit Cloud logs
+                logger.error("Gemini extraction error (attempt %d): %s", attempt + 1, e)
+                try:
+                    import streamlit as st
+                    st.toast(f"⚠️ Gemini error: {e}", icon="⚠️")
+                except Exception:
+                    pass
                 return None
 
         logger.warning("Gemini: all retries exhausted. Falling back to offline.")
         return None
 
     except ImportError:
-        logger.warning("google-genai not installed. Run: pip install google-genai")
+        logger.error("google-genai not installed. Run: pip install google-genai")
         return None
     except Exception as exc:
-        logger.warning("Gemini unavailable: %s", exc)
+        logger.error("Gemini unavailable: %s", exc)
+        try:
+            import streamlit as st
+            st.toast(f"⚠️ Gemini unavailable: {exc}", icon="⚠️")
+        except Exception:
+            pass
         return None
 
 
