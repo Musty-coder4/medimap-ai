@@ -292,7 +292,7 @@ def get_disease_insights(disease_name: str, key: str) -> str | None:
             "with markdown. Do not include introductory filler text."
         )
         response = client.models.generate_content(
-            model="gemini-2.5-pro",
+            model="gemini-2.5-flash",
             contents=prompt
         )
         return response.text

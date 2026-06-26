@@ -50,7 +50,7 @@ def _load_gemini_key() -> str:
 
 GEMINI_API_KEY: str = _load_gemini_key()
 
-_GEMINI_MODEL = "gemini-2.5-pro"  # paid plan — full Pro model
+_GEMINI_MODEL = "gemini-2.5-flash"  # free tier compatible
 
 
 # =============================================================================
