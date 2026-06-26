@@ -221,8 +221,13 @@ st.markdown(
                     align-items:center;flex-wrap:wrap;gap:1rem">
             <div>
                 <p style="color:#64748b;font-size:.8rem;margin:0;
-                    letter-spacing:.1em;text-transform:uppercase">Predicted Condition</p>
-                <h2 style="margin:.3rem 0;font-size:1.9rem">{result['predicted_class']}</h2>
+                    letter-spacing:.1em;text-transform:uppercase">
+                    {"Possible Condition (Hint)" if conf < 60 else "Predicted Condition"}
+                </p>
+                <h2 style="margin:.3rem 0;font-size:1.9rem">
+                    {result['predicted_class']} { "?" if conf < 60 else ""}
+                </h2>
+                {f'<p style="color:#eab308;font-size:.85rem;margin:0 0 .3rem;">⚠️ Symptoms are ambiguous; this is only a hint.</p>' if conf < 60 else ''}
                 <p style="color:#64748b;margin:0">
                     Recommended specialist:
                     <strong style="color:#059669">{specialty}</strong>
