@@ -375,6 +375,28 @@ def render_sidebar() -> dict:
             horizontal=False,
         )
 
+        # ── Gemini AI Status ───────────────────────────────────────────────
+        st.markdown("#### 🤖 Gemini AI Status")
+        try:
+            from utils.symptom_extractor import GEMINI_API_KEY, _GEMINI_MODEL
+            if GEMINI_API_KEY:
+                st.caption(f"✅ Key loaded — Model: `{_GEMINI_MODEL}`")
+                # Quick live ping to check the key actually works
+                try:
+                    from google import genai
+                    _c = genai.Client(api_key=GEMINI_API_KEY)
+                    _c.models.generate_content(
+                        model=_GEMINI_MODEL,
+                        contents="Reply with the single word: OK"
+                    )
+                    st.caption("🟢 Gemini API reachable")
+                except Exception as _ge:
+                    st.caption(f"🔴 Gemini API error: {_ge}")
+            else:
+                st.caption("🔴 No API key found in secrets")
+        except Exception as _ie:
+            st.caption(f"🔴 Import error: {_ie}")
+
         st.divider()
         st.caption("MediMap AI v3.0")
 
