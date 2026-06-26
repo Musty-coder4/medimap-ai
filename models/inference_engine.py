@@ -203,6 +203,31 @@ class MediMapInferenceEngine:
             if shift > 0:
                 scores.append((sym, shift))
                 
+        # Load disease symptom mappings to check if we've exhausted all symptoms for the top class
+        try:
+            import json, os
+            map_path = os.path.join(os.path.dirname(__file__), 'disease_symptoms.json')
+            with open(map_path, 'r') as f:
+                disease_map = json.load(f)
+            top_disease_symptoms = disease_map.get(top_class_name, [])
+            
+            # If the user has already selected every single symptom belonging to this disease
+            if set(top_disease_symptoms).issubset(set(current_symptoms)):
+                return []  # Exception: Do not run fallback, skip survey!
+        except Exception:
+            pass
+
         # Sort by highest positive shift
         scores.sort(key=lambda x: x[1], reverse=True)
+        
+        # FALLBACK: If no symptoms increase the top hypothesis, return the ones that cause 
+        # the largest absolute change across all classes to disambiguate.
+        if not scores:
+            for sym in unselected:
+                test_syms = current_symptoms + [sym]
+                res = self.predict_from_inputs(test_syms)
+                shift = sum(abs(res["probabilities"][c] - base_probs[c]) for c in base_probs)
+                scores.append((sym, shift))
+            scores.sort(key=lambda x: x[1], reverse=True)
+            
         return [sym for sym, _ in scores[:top_n]]
