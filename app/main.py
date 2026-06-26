@@ -621,9 +621,9 @@ def render_symptoms(all_symptoms: list[str]) -> list[str]:
 
     extracted, explanations, engine = extract_symptoms_from_text(description, all_symptoms)
 
-    # ── Show Gemini error if one was recorded ────────────────────────────────
+    # ── Show Gemini error as 3-second toast popup ─────────────────────────────
     if st.session_state.get("gemini_error"):
-        st.warning(f"⚠️ {st.session_state.pop('gemini_error')}", icon="⚠️")
+        st.toast(st.session_state.pop("gemini_error"), icon="⚠️")
 
     if extracted:
         engine_label = "Gemini AI" if engine == "gemini" else "Smart Offline Engine"
