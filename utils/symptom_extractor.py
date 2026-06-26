@@ -617,7 +617,7 @@ RESPONSE FORMAT (return ONLY this JSON):
                 logger.error("Gemini extraction error (attempt %d): %s", attempt + 1, e)
                 try:
                     import streamlit as st
-                    st.toast(f"⚠️ Gemini error: {e}", icon="⚠️")
+                    st.session_state["gemini_error"] = f"Gemini AI error: {e}. Falling back to Smart Offline Engine."
                 except Exception:
                     pass
                 return None
@@ -627,12 +627,17 @@ RESPONSE FORMAT (return ONLY this JSON):
 
     except ImportError:
         logger.error("google-genai not installed. Run: pip install google-genai")
+        try:
+            import streamlit as st
+            st.session_state["gemini_error"] = "Gemini library not installed. Using Smart Offline Engine."
+        except Exception:
+            pass
         return None
     except Exception as exc:
         logger.error("Gemini unavailable: %s", exc)
         try:
             import streamlit as st
-            st.toast(f"⚠️ Gemini unavailable: {exc}", icon="⚠️")
+            st.session_state["gemini_error"] = f"Gemini unavailable ({exc}). Falling back to Smart Offline Engine."
         except Exception:
             pass
         return None
