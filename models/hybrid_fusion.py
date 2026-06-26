@@ -408,6 +408,38 @@ class MediMapHybridModel(nn.Module):
             image = image.to(DEVICE)
 
             _, probs = self.forward(symptoms, image)
+
+            # ── Rare-disease confidence boost (1.3×) ──────────────────────
+            # These diseases have very few unique symptoms in the dataset and
+            # tend to be drowned out by common diseases like Malaria/Typhoid.
+            # Multiplying their raw softmax probability by 1.3 before argmax
+            # ensures they surface when the user provides the right symptoms.
+            _RARE_DISEASE_BOOST: dict[str, float] = {
+                "AIDS":                              1.3,
+                "Dengue":                            1.3,
+                "Hepatitis A":                       1.3,
+                "Hepatitis B":                       1.3,
+                "Hepatitis C":                       1.3,
+                "Hepatitis D":                       1.3,
+                "Hepatitis E":                       1.3,
+                "Jaundice":                          1.3,
+                "Chronic kidney disease":            1.3,
+                "Paralysis (brain hemorrhage)":      1.3,
+                "Dimorphic hemmorhoids(piles)":      1.3,
+                "Osteoarthritis":                    1.3,
+                "Cervical spondylosis":              1.3,
+            }
+            if label_names:
+                boosted = probs[0].clone()
+                for disease, multiplier in _RARE_DISEASE_BOOST.items():
+                    if disease in label_names:
+                        idx = label_names.index(disease)
+                        boosted[idx] = boosted[idx] * multiplier
+                # Re-normalise so probabilities still sum to 1
+                boosted = boosted / boosted.sum()
+                probs = boosted.unsqueeze(0)
+            # ──────────────────────────────────────────────────────────────
+
             top1_idx = probs.argmax(dim=1).item()
             confidence = probs[0, top1_idx].item()
 
