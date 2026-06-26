@@ -727,13 +727,15 @@ def render_symptoms(all_symptoms: list[str]) -> list[str]:
 
     default_vals = [s for s in extracted if s in filtered]
 
-    manual = st.multiselect(
-        "Select additional symptoms",
-        options=filtered,
-        default=default_vals,
-        placeholder="Click here to add or remove symptoms …",
-        key=_MK,
-    )
+    with st.form(key="manual_symptoms_form", border=False):
+        manual = st.multiselect(
+            "Select additional symptoms",
+            options=filtered,
+            default=default_vals,
+            placeholder="Click here to add or remove symptoms …",
+            key=_MK,
+        )
+        st.form_submit_button("✅ Apply Manual Symptoms")
 
     combined = sorted(set(extracted) | set(manual))
 
