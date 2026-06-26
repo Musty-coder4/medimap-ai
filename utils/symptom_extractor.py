@@ -614,10 +614,11 @@ RESPONSE FORMAT (return ONLY this JSON):
                     time.sleep(wait)
                     continue
                 # Log full error visibly so it shows in Streamlit Cloud logs
-                logger.error("Gemini extraction error (attempt %d): %s", attempt + 1, e)
+                err_msg = str(e).split('.')[0] + '.' if '.' in str(e) else str(e)
+                logger.error("Gemini extraction error (attempt %d): %s", attempt + 1, err_msg)
                 try:
                     import streamlit as st
-                    st.session_state["gemini_error"] = f"Gemini AI error: {e}. Falling back to Smart Offline Engine."
+                    st.session_state["gemini_error"] = f"Gemini AI error: {err_msg} Falling back to Smart Offline Engine."
                 except Exception:
                     pass
                 return None
@@ -634,10 +635,11 @@ RESPONSE FORMAT (return ONLY this JSON):
             pass
         return None
     except Exception as exc:
-        logger.error("Gemini unavailable: %s", exc)
+        err_msg = str(exc).split('.')[0] + '.' if '.' in str(exc) else str(exc)
+        logger.error("Gemini unavailable: %s", err_msg)
         try:
             import streamlit as st
-            st.session_state["gemini_error"] = f"Gemini unavailable ({exc}). Falling back to Smart Offline Engine."
+            st.session_state["gemini_error"] = f"Gemini unavailable ({err_msg}). Falling back to Smart Offline Engine."
         except Exception:
             pass
         return None
