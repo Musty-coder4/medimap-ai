@@ -48,6 +48,91 @@ _GEMINI_MODEL = "gemini-2.5-flash-lite"  # working free-tier model on this key
 
 _SYNONYMS: dict[str, str] = {
 
+    # ── AIDS / HIV-specific ────────────────────────────────────────────────────
+    "muscle wasting":               "muscle_wasting",
+    "muscles wasting":              "muscle_wasting",
+    "losing muscle":                "muscle_wasting",
+    "body wasting":                 "muscle_wasting",
+    "body is wasting":              "muscle_wasting",
+    "thin muscles":                 "muscle_wasting",
+    "muscle loss":                  "muscle_wasting",
+    "wasting away":                 "muscle_wasting",
+    "weight loss with muscle":      "muscle_wasting",
+    "patches in throat":            "patches_in_throat",
+    "white patches throat":         "patches_in_throat",
+    "throat patches":               "patches_in_throat",
+    "white spots in throat":        "patches_in_throat",
+    "sores in throat":              "patches_in_throat",
+    "patches on throat":            "patches_in_throat",
+    "oral patches":                 "patches_in_throat",
+    "white coating throat":         "patches_in_throat",
+    "sexual contact":               "extra_marital_contacts",
+    "unprotected sex":              "extra_marital_contacts",
+    "multiple partners":            "extra_marital_contacts",
+    "risky sexual":                 "extra_marital_contacts",
+    "extramarital":                 "extra_marital_contacts",
+    "extra marital":                "extra_marital_contacts",
+    "hiv":                          "extra_marital_contacts",
+    "aids":                         "extra_marital_contacts",
+    "sexually transmitted":         "extra_marital_contacts",
+    "unprotected sexual":           "extra_marital_contacts",
+
+    # ── Dengue-specific ───────────────────────────────────────────────────────
+    "behind eyes pain":             "pain_behind_the_eyes",
+    "pain behind eyes":             "pain_behind_the_eyes",
+    "eye pain":                     "pain_behind_the_eyes",
+    "eyes aching":                  "pain_behind_the_eyes",
+    "pain in eyes":                 "pain_behind_the_eyes",
+    "orbital pain":                 "pain_behind_the_eyes",
+    "red spots":                    "red_spots_over_body",
+    "red spots on body":            "red_spots_over_body",
+    "spots on skin":                "red_spots_over_body",
+    "rashes with spots":            "red_spots_over_body",
+    "red dots on skin":             "red_spots_over_body",
+    "skin bleeding":                "red_spots_over_body",
+
+    # ── Malaria-specific ─────────────────────────────────────────────────────
+    "blackwater":                   "blackwater_fever",
+    "dark urine with fever":        "blackwater_fever",
+    "black urine":                  "blackwater_fever",
+    "cyclical fever":               "chills",
+    "periodic fever":               "chills",
+    "fever coming and going":       "chills",
+
+    # ── Jaundice-specific ────────────────────────────────────────────────────
+    "yellow skin":                  "yellowing_of_skin",
+    "skin turning yellow":          "yellowing_of_skin",
+    "yellowish skin":               "yellowing_of_skin",
+    "jaundice":                     "yellowing_of_skin",
+    "yellow eyes":                  "yellowish_eyes",
+    "eyes yellow":                  "yellowish_eyes",
+    "sclera yellow":                "yellowish_eyes",
+    "whites of eyes yellow":        "yellowish_eyes",
+    "dark yellow urine":            "dark_urine",
+    "urine is dark":                "dark_urine",
+    "brownish urine":               "dark_urine",
+
+    # ── Typhoid-specific ─────────────────────────────────────────────────────
+    "rose spots":                   "belly_pain",
+    "abdominal spots":              "belly_pain",
+    "continuous fever":             "high_fever",
+    "step ladder fever":            "high_fever",
+
+    # ── Diabetes-specific ────────────────────────────────────────────────────
+    "excessive thirst":             "excessive_hunger",
+    "always thirsty":               "excessive_hunger",
+    "keep drinking water":          "excessive_hunger",
+    "frequent urination":           "polyuria",
+    "urinating a lot":              "polyuria",
+    "urinating frequently":         "polyuria",
+    "passing urine often":          "polyuria",
+    "always urinating":             "polyuria",
+    "blurry vision":                "blurred_and_distorted_vision",
+    "blurred vision":               "blurred_and_distorted_vision",
+    "cannot see clearly":           "blurred_and_distorted_vision",
+    "vision is blurry":             "blurred_and_distorted_vision",
+
+
     # ── Fever / Temperature ───────────────────────────────────────────────────
     "fever":                        "high_fever",
     "high fever":                   "high_fever",
