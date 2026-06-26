@@ -18,7 +18,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from google import genai
-from utils.disease_insights_library import get_fallback_insights
 
 try:
     from streamlit_folium import st_folium
@@ -30,6 +29,9 @@ except ImportError:
 # ── Make project root importable ─────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+
+# ── Import project utils (must be after sys.path fix) ────────────────────────
+from utils.disease_insights_library import get_fallback_insights
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
