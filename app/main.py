@@ -391,7 +391,8 @@ def render_sidebar() -> dict:
                     )
                     st.caption("🟢 Gemini API reachable")
                 except Exception as _ge:
-                    st.caption(f"🔴 Gemini API error: {_ge}")
+                    err_msg = str(_ge).split('.')[0] + '.' if '.' in str(_ge) else str(_ge)
+                    st.caption(f"🔴 Gemini API error: {err_msg}")
             else:
                 st.caption("🔴 No API key found in secrets")
         except Exception as _ie:

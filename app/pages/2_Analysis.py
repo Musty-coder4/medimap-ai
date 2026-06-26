@@ -211,8 +211,15 @@ if conf >= 70:
     badge_cls, badge_lbl = "badge-green", "High Confidence"
 elif conf >= 45:
     badge_cls, badge_lbl = "badge-warn",  "Moderate Confidence"
-else:
+if conf < 60:
     badge_cls, badge_lbl = "badge-blue",  "Low Confidence"
+    title_text = "Possible Condition (Hint)"
+    pred_suffix = " ?"
+    hint_html = '<p style="color:#eab308;font-size:.85rem;margin:0 0 .3rem;">⚠️ Symptoms are ambiguous; this is only a hint.</p>'
+else:
+    title_text = "Predicted Condition"
+    pred_suffix = ""
+    hint_html = ""
 
 st.markdown(
     f"""
@@ -222,12 +229,12 @@ st.markdown(
             <div>
                 <p style="color:#64748b;font-size:.8rem;margin:0;
                     letter-spacing:.1em;text-transform:uppercase">
-                    {"Possible Condition (Hint)" if conf < 60 else "Predicted Condition"}
+                    {title_text}
                 </p>
                 <h2 style="margin:.3rem 0;font-size:1.9rem">
-                    {result['predicted_class']} { "?" if conf < 60 else ""}
+                    {result['predicted_class']}{pred_suffix}
                 </h2>
-                {f'<p style="color:#eab308;font-size:.85rem;margin:0 0 .3rem;">⚠️ Symptoms are ambiguous; this is only a hint.</p>' if conf < 60 else ''}
+                {hint_html}
                 <p style="color:#64748b;margin:0">
                     Recommended specialist:
                     <strong style="color:#059669">{specialty}</strong>
