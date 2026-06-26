@@ -669,8 +669,33 @@ def render_symptoms(all_symptoms: list[str]) -> list[str]:
     _MK = "manual_symptom_select"
     current_sel: list = st.session_state.get(_MK, [])
     if search:
-        matches  = [s for s in all_symptoms if search.lower() in s.lower()]
-        filtered = sorted(set(matches) | set(current_sel) | set(extracted))
+        q = search.lower().strip()
+        # Replace spaces with underscores so "muscle pain" matches "muscle_pain"
+        q_under = q.replace(" ", "_")
+        q_words = q.split()
+
+        def _symptom_score(s: str) -> float:
+            """Return match score: higher = better match."""
+            sl = s.lower()
+            # Exact or substring match on underscored form
+            if q_under in sl or q in sl:
+                return 1.0
+            # All query words appear somewhere in the symptom
+            if all(w in sl for w in q_words):
+                return 0.9
+            # Any query word appears in the symptom
+            if any(w in sl for w in q_words):
+                return 0.7
+            # Symptom words appear in query (reverse match: "pain body" finds "body_pain")
+            s_words = sl.replace("_", " ").split()
+            if any(w in q for w in s_words):
+                return 0.5
+            return 0.0
+
+        matches = [s for s in all_symptoms if _symptom_score(s) > 0]
+        # Sort by score descending
+        matches.sort(key=lambda s: _symptom_score(s), reverse=True)
+        filtered = list(dict.fromkeys(matches + [s for s in current_sel if s not in matches] + [s for s in extracted if s not in matches]))
     else:
         filtered = all_symptoms
 
