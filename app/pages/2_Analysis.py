@@ -235,8 +235,7 @@ st.markdown(
                 </p>
                 <h2 style="margin:.3rem 0;font-size:1.9rem">
                     {result['predicted_class']}{pred_suffix}
-                </h2>
-                {hint_html}
+                </h2>{hint_html}
                 <p style="color:#64748b;margin:0">
                     Recommended specialist:
                     <strong style="color:#059669">{specialty}</strong>
