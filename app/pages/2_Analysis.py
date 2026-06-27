@@ -209,18 +209,14 @@ st.divider()
 conf = result["confidence"]
 if conf >= 70:
     badge_cls, badge_lbl = "badge-green", "High Confidence"
-elif conf >= 45:
+elif conf >= 60:
     badge_cls, badge_lbl = "badge-warn",  "Moderate Confidence"
-
-if conf < 60:
-    badge_cls, badge_lbl = "badge-blue",  "Low Confidence"
-    title_text = "Possible Condition (Hint)"
-    pred_suffix = " ?"
-    hint_html = '<p style="color:#eab308;font-size:.85rem;margin:0 0 .3rem;">⚠️ Symptoms are ambiguous; this is only a hint.</p>'
 else:
-    title_text = "Predicted Condition"
-    pred_suffix = ""
-    hint_html = ""
+    badge_cls, badge_lbl = "badge-blue",  "Low Confidence"
+
+title_text = "Predicted Condition"
+pred_suffix = ""
+hint_html = ""
 
 st.markdown(
     f"""
