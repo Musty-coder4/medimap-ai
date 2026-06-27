@@ -493,7 +493,7 @@ DISEASE_PRIORS = {
     "Gastroenteritis": 1.5,
     "Acne": 1.5,
     "Paralysis (brain hemorrhage)": 1.5,
-    "AIDS": 1.5,
+    "AIDS": 1.3,
     "Heart attack": 1.5,
 }
 

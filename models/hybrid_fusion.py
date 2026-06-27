@@ -415,7 +415,7 @@ class MediMapHybridModel(nn.Module):
             # Multiplying their raw softmax probability by 1.3 before argmax
             # ensures they surface when the user provides the right symptoms.
             _RARE_DISEASE_BOOST: dict[str, float] = {
-                "AIDS":                              1.5,
+                "AIDS":                              1.3,
                 "Dengue":                            1.3,
                 "Hepatitis A":                       1.3,
                 "Hepatitis B":                       1.3,

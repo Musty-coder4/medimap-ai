@@ -214,9 +214,14 @@ elif conf >= 60:
 else:
     badge_cls, badge_lbl = "badge-blue",  "Low Confidence"
 
-title_text = "Predicted Condition"
-pred_suffix = ""
-hint_html = ""
+if conf < 60:
+    title_text = "Possible Condition (Hint)"
+    pred_suffix = " ?"
+    hint_html = '<p style="color:#eab308;font-size:.85rem;margin:0 0 .3rem;">⚠️ Symptoms are ambiguous; this is only a hint.</p>'
+else:
+    title_text = "Predicted Condition"
+    pred_suffix = ""
+    hint_html = ""
 
 st.markdown(
     f"""
