@@ -492,9 +492,9 @@ DISEASE_PRIORS = {
     "Allergy": 1.5,
     "Gastroenteritis": 1.5,
     "Acne": 1.5,
-    "Paralysis (brain hemorrhage)": 0.1,
-    "AIDS": 0.1,
-    "Heart attack": 0.1,
+    "Paralysis (brain hemorrhage)": 1.5,
+    "AIDS": 1.5,
+    "Heart attack": 1.5,
 }
 
 def run_inference(
@@ -563,6 +563,25 @@ def get_clarifying_questions(
     while len(final_symptoms) < top_n and current_rank < len(label_names):
         target_idx = sorted_indices[current_rank]
         base_prob = base_probs[target_idx]
+        target_class_name = label_names[target_idx]
+        
+        # EXCEPTION LOGIC: If the user has already entered all symptoms for the top predicted disease,
+        # do not ask disambiguation questions for lower-ranked diseases. Just skip the survey.
+        if current_rank == 0:
+            try:
+                import json, os
+                map_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'disease_symptoms.json')
+                with open(map_path, 'r') as f:
+                    disease_map = json.load(f)
+                top_disease_symptoms = disease_map.get(target_class_name, [])
+                
+                clean_top = set([s.strip().lower() for s in top_disease_symptoms])
+                clean_cur = set([s.strip().lower() for s in current_symptoms])
+                
+                if len(clean_top) > 0 and clean_top.issubset(clean_cur):
+                    return []  # Skip survey
+            except Exception:
+                pass
         
         scores = []
         for sym in unselected:
@@ -589,11 +608,12 @@ def get_clarifying_questions(
             if len(final_symptoms) >= top_n:
                 break
                 
+        # If we found at least some symptoms for the top class, stop. 
+        # Don't ask about rank 2 if rank 1 gave us questions.
+        if len(final_symptoms) > 0:
+            break
+            
         current_rank += 1
-        
-    # Absolute fallback (extremely rare)
-    if not final_symptoms and unselected:
-        final_symptoms = unselected[:top_n]
         
     return final_symptoms
 
